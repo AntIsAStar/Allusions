@@ -11,9 +11,6 @@ for i, v in pairs(Bp:GetChildren()) do
 		Character:BreakJoints()
 	end
 end
-for i,v in pairs(getgenv().Moves) do 
-	print(i, v)
-end
 Lp.CharacterAdded:Connect(function(Char)
 	Bp = Lp.Backpack
 	Bp.ChildAdded:Connect(function(Child)
@@ -22,7 +19,6 @@ Lp.CharacterAdded:Connect(function(Char)
 			print("You got a move in the table!", Child)
 			getgenv().Reset = false
 		elseif getgenv().Reset == true and Count == 4 then
-			print("Count Before Reset:", Count)
 			Count = 0
 			Char:BreakJoints()
 		end
