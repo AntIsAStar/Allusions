@@ -18,7 +18,6 @@ Lp.CharacterAdded:Connect(function(Char)
 			print("You got a move in the table!", Child)
 		elseif getgenv().Reset == true then
 			Char:BreakJoints()
-			print("Move not found still spinning!!!", Child)
 		end
 	end)
 end)
