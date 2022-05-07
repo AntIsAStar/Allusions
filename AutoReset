@@ -3,6 +3,7 @@ local Lp = Players.LocalPlayer
 local Bp = Lp.Backpack
 local Character = Lp.Character or Lp.CharacterAdded:Wait()
 local Humanoid = Character:FindFirstChild("Humanoid") or Character:WaitForChild("Humanoid")
+local Count = 0
 for i, v in pairs(Bp:GetChildren()) do
 	if v:IsA("Tool") and table.find(getgenv().Moves, v.Name) then
 		getgenv().Reset = false
@@ -13,17 +14,17 @@ end
 Lp.CharacterAdded:Connect(function(Char)
 	Bp = Lp.Backpack
 	Bp.ChildAdded:Connect(function(Child)
-		getgenv().Count = getgenv().Count + 1
-		print("Count Incrementing:", getgenv().Count)
-		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true and getgenv().Count == 4 then
-			print("Count current value", getgenv().Count)
+		Count = Count + 1
+		print("Count Incrementing:", Count)
+		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true and Count == 4 then
+			print("Count current value", Count)
 			print("You got a move in the table!", Child)
 			getgenv().Reset = false
-		elseif getgenv().Reset == true and getgenv().Count == 4 then
-			print("Count Before Reset:", getgenv().Count)
-			getgenv().Count = 0
+		elseif getgenv().Reset == true and Count == 4 then
+			print("Count Before Reset:", Count)
+			Count = 0
 			Char:BreakJoints()
-			print("Count After Reset:", getgenv().Count)
+			print("Count After Reset:", Count)
 		end
 	end)
 end)
