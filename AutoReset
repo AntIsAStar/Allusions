@@ -1,0 +1,24 @@
+local Players = game:GetService("Players")
+local Lp = Players.LocalPlayer
+local Bp = Lp.Backpack
+local Character = Lp.Character or Lp.CharacterAdded:Wait()
+local Humanoid = Character:FindFirstChild("Humanoid") or Character:WaitForChild("Humanoid")
+for i, v in pairs(Bp:GetChildren()) do
+	if v:IsA("Tool") and table.find(getgenv().Moves, v.Name) then
+		getgenv().Reset = false
+	else
+		Character:BreakJoints()
+	end
+end
+Lp.CharacterAdded:Connect(function(Char)
+	Bp = Lp.Backpack
+	Bp.ChildAdded:Connect(function(Child)
+		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true then
+			getgenv().Reset = false
+			print("You got a move in the table!", Child)
+		elseif getgenv().Reset == true then
+			Char:BreakJoints()
+			print("Move not found still spinning!!!", Child)
+		end
+	end)
+end)
