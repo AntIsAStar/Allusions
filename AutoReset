@@ -3,7 +3,6 @@ local Lp = Players.LocalPlayer
 local Bp = Lp.Backpack
 local Character = Lp.Character or Lp.CharacterAdded:Wait()
 local Humanoid = Character:FindFirstChild("Humanoid") or Character:WaitForChild("Humanoid")
-getgenv().Count = 0
 for i, v in pairs(Bp:GetChildren()) do
 	if v:IsA("Tool") and table.find(getgenv().Moves, v.Name) then
 		getgenv().Reset = false
