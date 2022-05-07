@@ -14,6 +14,7 @@ end
 Lp.CharacterAdded:Connect(function(Char)
 	Bp = Lp.Backpack
 	Bp.ChildAdded:Connect(function(Child)
+		print(Count)
 		Count = Count + 1
 		print("Count Incrementing:", Count)
 		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true and Count == 4 then
