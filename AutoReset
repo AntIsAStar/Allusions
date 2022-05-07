@@ -12,12 +12,11 @@ for i, v in pairs(Bp:GetChildren()) do
 	end
 end
 Lp.CharacterAdded:Connect(function(Char)
-	task.wait(0.1)
 	Bp = Lp.Backpack
 	Bp.ChildAdded:Connect(function(Child)
 		Count = Count + 1
 		print("Count while it's incrementing:", Count)
-		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true and Count == 4 then
+		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true  then
 			getgenv().Reset = false
 		elseif getgenv().Reset == true and Count == 4 then
 			print("Before Reset Value:", Count)
