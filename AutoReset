@@ -20,7 +20,9 @@ Lp.CharacterAdded:Connect(function(Char)
 		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true and Count == 4 then
 			getgenv().Reset = false
 		elseif getgenv().Reset == true and Count == 4 then
+			print("Before Reset Value:", Count)
 			Count = 0
+			print("After Reset Value:", Count)
 			Char:BreakJoints()
 		end
 	end)
