@@ -22,7 +22,7 @@ Lp.CharacterAdded:Connect(function(Char)
 			getgenv().Reset = false
 		elseif getgenv().Reset == true and Count == 4 then
 			for i,v in pairs(Bp:GetChildren()) do 
-			if v:IsA("Tool") and table.find(getgenv().Moves, v.Name) then 
+			if v:IsA("Tool") then
 			print(v.Name)
 			end 
 		end
