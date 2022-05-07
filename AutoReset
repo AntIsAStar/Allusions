@@ -14,6 +14,7 @@ end
 Lp.CharacterAdded:Connect(function(Char)
 	Bp = Lp.Backpack
 	Bp.ChildAdded:Connect(function(Child)
+		Count = Count + 1
 		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true and Count == 4 then
 			print("You got a move in the table!", Child)
 			getgenv().Reset = false
