@@ -11,6 +11,7 @@ for i, v in pairs(Bp:GetChildren()) do
 	end
 end
 Lp.CharacterAdded:Connect(function(Char)
+	task.wait(0.1)
 	Bp = Lp.Backpack
 	Bp.ChildAdded:Connect(function(Child)
 		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true then
