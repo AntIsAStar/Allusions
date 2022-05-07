@@ -18,7 +18,7 @@ Lp.CharacterAdded:Connect(function(Char)
 			print("You got a move in the table!", Child)
 			getgenv().Reset = false
 		elseif getgenv().Reset == true and getgenv().Count == 4 then
-			getgenv().Count
+			getgenv().Count = 0
 			Char:BreakJoints()
 		end
 	end)
