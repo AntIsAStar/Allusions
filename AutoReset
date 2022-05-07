@@ -19,7 +19,11 @@ Lp.CharacterAdded:Connect(function(Char)
 			print("You got a move in the table!", Child)
 			getgenv().Reset = false
 		elseif getgenv().Reset == true and Count == 4 then
-			print(Child)
+			for i,v in pairs(Bp:GetChildren()) do 
+			if v:IsA("Tool") then 
+			print(v)
+			end 
+		end
 			Count = 0
 			Char:BreakJoints()
 		end
