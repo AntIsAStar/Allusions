@@ -16,9 +16,12 @@ Lp.CharacterAdded:Connect(function(Char)
 	Bp = Lp.Backpack
 	Bp.ChildAdded:Connect(function(Child)
 		Count = Count + 1
+		print("Count while it's incrementing:", Count)
 		if Child:IsA("Tool") and table.find(getgenv().Moves, Child.Name) and getgenv().Reset == true and Count == 4 then
 			getgenv().Reset = false
+			print("Count before reset:", Count)
 			Count = 0
+			print("Count after reset:", Count)
 			print("You got a move in the table!", Child)
 		elseif getgenv().Reset == true then
 			Char:BreakJoints()
